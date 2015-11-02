@@ -30,6 +30,26 @@ Derby DB
 
 ### Start Camel Routes
 
+ Open a new terminal / command prompt.
+
+ Source your environment (Java Home, Maven Home)
+
+ To build the project routes type:
+
+<pre><code>
+
+  embassy> mvn clean install
+
+</code></pre>
+
+ You'll need to start each route in its own terminal for this demo.
+
+<pre><code>
+
+  embassy> mvn camel:run
+
+</code></pre>
+
 ### Send in request to request queue. 
 
 Open a web browser the ActiveMQ console
