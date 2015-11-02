@@ -30,8 +30,8 @@
   </properties>
 
   <modules>
-    <!--
     <module>json2xml</module>
+    <!--
     <module>xml2jms</module>
     <module>consumerAck</module>
     <module>ack2DB</module>

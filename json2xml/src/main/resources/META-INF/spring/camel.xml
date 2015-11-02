@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cxf="http://camel.apache.org/schema/cxf"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <!-- Broker configuration -->
+    <bean id="amqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+
+    <bean id="consumerJmsConfig" class="org.apache.camel.component.jms.JmsConfiguration">
+        <property name="connectionFactory" ref="amqConnectionFactory"/>
+        <property name="concurrentConsumers" value="5"/>
+    </bean>
+
+
+    <!-- Set up the consumer -->
+    <bean id="jmsConsumer" class="org.apache.camel.component.jms.JmsComponent">
+        <property name="connectionFactory" ref="amqConnectionFactory"/>
+        <property name="configuration" ref="consumerJmsConfig"/>
+    </bean>
+
+    <!-- routeBuilder -->
+    <bean id="routeBuilder" class="com.savoirtech.embassy.dc.json2xml.RequestRouteBuilder">
+    </bean>    
+
+    <!-- Camel configuration -->
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <routeBuilder ref="routeBuilder" />
+    </camelContext>
+
+</beans>
