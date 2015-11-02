@@ -9,14 +9,30 @@ JDK 8
 
 Maven 3.2+
 
-Apache Karaf 4.0.2
+Apache ActiveMQ 5.12.1 
 
-Alternatively, try Aetos 3.0+ for prepurposed Integration Container
+Derby DB
 </code></pre>
 
 ## How to kick off the demo
 
-Start in a web browser the ActiveMQ console
+ 1. Start your activemq broker:
+
+<pre><code>
+ 
+ # Linux
+ apache-activemq-5.12.1/bin> ./activemq start 
+
+ # Windows
+ apache-activemq-5.12.1\bin$ activemq
+
+</code></pre>
+
+ 1. Start Camel Routes
+
+ 1. Send in request to request queue. 
+
+Open a web browser the ActiveMQ console
 http://localhost:8161/admin/queues.jsp
 
 Create a message for the request queue.
