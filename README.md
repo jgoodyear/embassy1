@@ -16,7 +16,7 @@ Derby DB
 
 ## How to kick off the demo
 
- 1. Start your activemq broker:
+### Start your activemq broker:
 
 <pre><code>
  
@@ -28,9 +28,9 @@ Derby DB
 
 </code></pre>
 
- 1. Start Camel Routes
+### Start Camel Routes
 
- 1. Send in request to request queue. 
+### Send in request to request queue. 
 
 Open a web browser the ActiveMQ console
 http://localhost:8161/admin/queues.jsp
