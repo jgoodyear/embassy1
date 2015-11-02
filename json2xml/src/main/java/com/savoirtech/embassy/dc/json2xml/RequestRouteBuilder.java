@@ -1,6 +1,7 @@
 package com.savoirtech.embassy.dc.json2xml;
 
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.model.dataformat.JsonLibrary;
 
 /**
  * Read queue.
@@ -15,7 +16,8 @@ public class RequestRouteBuilder extends RouteBuilder {
 
         from("jmsConsumer:queue:request").id("json2xml").
         log("convert jms payload to xml file").
-        to("file://requestFiles?fileName=translated.txt");
+        unmarshal().xmljson().
+        to("file://requestFiles?fileName=translated.xml");
     }  
 
 }
