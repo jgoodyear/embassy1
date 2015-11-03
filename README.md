@@ -90,3 +90,14 @@ In the body section, copy and paste the below json body:
 }
 
 </code></pre>
+
+## Setup Debug Mode for Camel Unit Tests
+
+ To configure debug mode of your Camel Unit Tests, setup your IDE's Debug runner to include the below VM options:
+
+<code><pre>
+
+ -ea -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+
+</code></pre>
+
