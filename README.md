@@ -101,3 +101,31 @@ In the body section, copy and paste the below json body:
 
 </code></pre>
 
+## Setup Tomcat 7 in Debug Mode
+
+ To configure Tomcat 7 to run in debug mode, set the following:
+
+<code><pre>
+
+ For windows first set variables:
+
+ set JPDA_ADDRESS=8000
+ set JPDA_TRANSPORT=dt_socket
+
+ to start server in debug mode:
+
+ %TOMCAT_HOME%/bin/catalina.bat jpda start
+
+ For unix first export variables:
+
+ export JPDA_ADDRESS=8000
+ export JPDA_TRANSPORT=dt_socket
+
+ and to start server in debug mode:
+
+ %TOMCAT_HOME%/bin/catalina.sh jpda start
+
+</code></pre>
+
+Note: You'll need to configure your editor to connect to port 8000
+
